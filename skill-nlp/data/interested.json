@@ -1,0 +1,130 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "oh that's interesting",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 0,
+            "end": 2,
+            "value": "oh",
+            "entity": "interested"
+          },
+          {
+            "start": 10,
+            "end": 21,
+            "value": "interesting",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "you're fascinating",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 7,
+            "end": 18,
+            "value": "fascinating",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "tell me more",
+        "intent": "interested",
+        "entities": []
+      },
+      {
+        "text": "where did you find that?",
+        "intent": "interested",
+        "entities": []
+      },
+      {
+        "text": "that's cool",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "cool",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "could you elaborate?",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 10,
+            "end": 19,
+            "value": "elaborate",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "i'd like to know more",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 12,
+            "end": 21,
+            "value": "know more",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "how does that work?",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 0,
+            "end": 13,
+            "value": "how does that",
+            "entity": "enquiry"
+          }
+        ]
+      },
+      {
+        "text": "why is this like that",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 0,
+            "end": 3,
+            "value": "why",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "lets talk about this",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 4,
+            "end": 15,
+            "value": " talk about",
+            "entity": "interested"
+          }
+        ]
+      },
+      {
+        "text": "i want to understand",
+        "intent": "interested",
+        "entities": [
+          {
+            "start": 10,
+            "end": 20,
+            "value": "understand",
+            "entity": "interested"
+          }
+        ]
+      }
+    ]
+  }
+}

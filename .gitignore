@@ -1,5 +1,5 @@
 *.pyc
-node_modules/*
+*ode_modules/*
 *.secret
 secret/*
 tmp/*

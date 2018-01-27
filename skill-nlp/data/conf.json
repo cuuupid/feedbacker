@@ -1,0 +1,150 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "I don't understand",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 2,
+            "end": 18,
+            "value": "don't understand",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "I'm confused",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 4,
+            "end": 12,
+            "value": "confused",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "I don't get it",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 2,
+            "end": 14,
+            "value": "don't get it",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "You're going too fast",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 13,
+            "end": 21,
+            "value": "too fast",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "Can you go over that again",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 15,
+            "value": "go over",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "This is hard",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 12,
+            "value": "hard",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "This is difficult",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 17,
+            "value": "difficult",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "Can you slow down",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 17,
+            "value": "slow down",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "That was confusing",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 9,
+            "end": 18,
+            "value": "confusing",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "This is complicated",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 19,
+            "value": "complicated",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "Can you explain that again",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 15,
+            "value": "explain",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "I don't follow you",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 14,
+            "value": "follow",
+            "entity": "confusion"
+          }
+        ]
+      }
+    ]
+  }
+}

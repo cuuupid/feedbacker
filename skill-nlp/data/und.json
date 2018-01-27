@@ -1,0 +1,240 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "content was easy",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 8,
+            "end": 16,
+            "value": "was easy",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the content was easy",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 16,
+            "end": 20,
+            "value": "easy",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I already knew this material",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 14,
+            "value": "already knew",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "material was simple",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 13,
+            "end": 19,
+            "value": "simple",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the material was clear",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 17,
+            "end": 22,
+            "value": "clear",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the lecture was not hard",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 12,
+            "end": 24,
+            "value": "was not hard",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "material wasn't hard",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 9,
+            "end": 20,
+            "value": "wasn't hard",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I understood the course",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 12,
+            "value": "understood",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the course and lectures were clear",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 24,
+            "end": 34,
+            "value": "were clear",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "lecture was very clear",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 12,
+            "end": 22,
+            "value": "very clear",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I am not confused by the material",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 5,
+            "end": 17,
+            "value": "not confused",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the material was well explained",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 17,
+            "end": 31,
+            "value": "well explained",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the course had a good explanation",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 17,
+            "end": 33,
+            "value": "good explanation",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I learned the material and course",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 9,
+            "value": "learned",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I know the subject",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 6,
+            "value": "know",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I recognise the concept",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 11,
+            "value": "recognise",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "I recognised the material from A Levels",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 2,
+            "end": 12,
+            "value": "recognised",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "It was easy to figure out new information",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 7,
+            "end": 11,
+            "value": "easy",
+            "entity": "understanding"
+          },
+          {
+            "start": 7,
+            "end": 25,
+            "value": "easy to figure out",
+            "entity": "understanding"
+          }
+        ]
+      },
+      {
+        "text": "the concepts were easy to grasp",
+        "intent": "understanding",
+        "entities": [
+          {
+            "start": 18,
+            "end": 31,
+            "value": "easy to grasp",
+            "entity": "understanding"
+          }
+        ]
+      }
+    ]
+  }
+}

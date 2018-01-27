@@ -1,0 +1,117 @@
+﻿{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "text": "that makes no sense",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 11,
+            "end": 19,
+            "value": "no sense",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "i am perplexed",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 5,
+            "end": 14,
+            "value": "perplexed",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "i'm not certain",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 4,
+            "end": 15,
+            "value": "not certain",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "WHAT THE FUCK IS GOING ON",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 0,
+            "end": 13,
+            "value": "WHAT THE FUCK",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "i don't get what is happening",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 12,
+            "end": 29,
+            "value": "what is happening",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "why is that like this",
+        "intent": "confusion",
+        "entities": []
+      },
+      {
+        "text": "i don't think this is right",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 0,
+            "end": 13,
+            "value": "i don't think",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "this is nonsense",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 8,
+            "end": 16,
+            "value": "nonsense",
+            "entity": "confusion"
+          }
+        ]
+      },
+      {
+        "text": "but why",
+        "intent": "confusion",
+        "entities": []
+      },
+      {
+        "text": "why did that happen",
+        "intent": "confusion",
+        "entities": []
+      },
+      {
+        "text": "i find this difficult",
+        "intent": "confusion",
+        "entities": [
+          {
+            "start": 12,
+            "end": 21,
+            "value": "difficult",
+            "entity": "confusion"
+          }
+        ]
+      }
+    ]
+  }
+}
