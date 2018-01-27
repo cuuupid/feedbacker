@@ -1,0 +1,6 @@
+*.pyc
+node_modules/*
+*.secret
+secret/*
+tmp/*
+*.log
