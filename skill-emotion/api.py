@@ -14,9 +14,9 @@ async def test(request):
     print(str(img_data[:10]))
     print("Made it")
     r = requests.post('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize', data=base64.decodebytes(img_data),
-                      headers={'Content-type': 'application/octet-stream', 'Ocp-Apim-Subscription-Key': '59c23938459842c59c82f594ebce1072'})
+                      headers={'Content-type': 'application/octet-stream', 'Ocp-Apim-Subscription-Key': 'KEY HERE'})
     r2 = requests.post('https://southcentralus.api.cognitive.microsoft.com/customvision/v1.1/Prediction/5de2f554-fa68-43f4-ab9f-f6234ba26596/image?iterationId=0dd2c33f-5347-45ac-8783-afe5ecae010c',
-                       data=base64.decodebytes(img_data), headers={'Content-Type': 'application/octet-stream', 'Prediction-Key': '10c3c344bc1043979066abb6198dd867'})
+                       data=base64.decodebytes(img_data), headers={'Content-Type': 'application/octet-stream', 'Prediction-Key': 'KEY HERE'})
     data = r.json()
     data2 = r2.json()
     try:
