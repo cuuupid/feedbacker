@@ -46,16 +46,21 @@
             <p id="count"></p>
             <p id="applause"></p>
             <div class="button" style="margin-left: 25%;float:left;" onclick="prevSlide()">
-                    <span class="button__mask"></span>
-                    <span class="button__text">< Previous Slide</span>
-                    <span class="button__text button__text--bis">< Previous Slide</span>
+                <span class="button__mask"></span>
+                <span class="button__text">< Previous Slide</span>
+                <span class="button__text button__text--bis">< Previous Slide</span>
             </div>
             <div class="button" onclick="nextSlide()">
-                    <span class="button__mask"></span>
-                    <span class="button__text">Next Slide ></span>
-                    <span class="button__text button__text--bis">Next Slide ></span>
+                <span class="button__mask"></span>
+                <span class="button__text">Next Slide ></span>
+                <span class="button__text button__text--bis">Next Slide ></span>
             </div>
-            <p>(or Arrow Keys)</p>
+            <p id="msg">(or Arrow Keys)</p>
+            <div class="button" onclick="finish()">
+                <span class="button__mask"></span>
+                <span class="button__text">End Presentation</span>
+                <span class="button__text button__text--bis">End Presentation</span>
+            </div>
         </div>
 
 
@@ -67,9 +72,76 @@
             var socket = io();
             var room;
             var lastFrame = 1;
+            var sizes = []
+            var happiness = []
+            var neutral = []
+            var fear = []
+            var sadness = []
+            var surprise = []
+            var contempt = []
+            var disgust = []
+            var applause = []
 
+            function finish() {
+                window.clearInterval()
+                document.getElementById('msg').innerHTML =
+                    "Don't forget to go check out your <a href='http://192.81.214.158:7474/index.html'>Post Mortem!</a>"
+                var lineGraph = new Chart($('#bar-graph'), {
+                    type: 'line',
+                    data: {
+                        labels: ["Happiness", "Neutral", "Fear", "Sadness", "Surprise", "Contempt",
+                            "Disgust", "Size", "Applause"
+                        ],
+                        datasets: [{
+                            label: 'Happiness',
+                            data: happiness,
+                            borderColor: '#19d8c1'
+                        }, {
+                            label: 'Neutral',
+                            data: neutral,
+                            borderColor: '#ff2d00'
+                        }, {
+                            label: 'Fear',
+                            data: fear,
+                            borderColor: '#00f4f2'
+                        }, {
+                            label: 'Sadness',
+                            data: sadness,
+                            borderColor: '#ff9800'
+                        }, {
+                            label: 'Surprise',
+                            data: surprise,
+                            borderColor: '#6c3523'
+                        }, {
+                            label: 'Contempt',
+                            data: contempt,
+                            borderColor: '#0003ff'
+                        }, {
+                            label: 'Disgust',
+                            data: disgust,
+                            borderColor: '#850488'
+                        }, {
+                            label: 'Applause',
+                            data: applause,
+                            borderColor: '#fffa88'
+                        }, {
+                            label: 'Size of Audience',
+                            data: sizes,
+                            borderColor: '#f60beb'
+                        }]
+                    },
+                    options: {
+                        elements: {
+                            line: {
+                                tension: 0.2
+                            }
+                        }
+                    }
+                })
+            }
 
             function getData() {
+                console.log("Getting data..")
                 fetch('http://192.81.214.158:6666/feed', {
                     method: 'POST',
                     headers: {
@@ -84,7 +156,9 @@
                     var scores
                     if (jd.length) scores = jd[jd.length - 1].scores
                     else return;
-                    document.getElementById('count').innerText = "There are " + scores.size + " people detected."
+                    console.log("Got scores")
+                    document.getElementById('count').innerText = "There are " + scores.size +
+                        " people detected."
                     var clapCount = scores.applause.Predictions[0]
                     var notClapCount = scores.applause.Predictions[1]
                     if (clapCount.Tag == "normal") {
@@ -92,8 +166,32 @@
                         notClapCount = clapCount
                         clapCount = temp
                     }
+                    console.log("Got clap count")
                     document.getElementById('applause').innerText = "People are " + (clapCount.Probability >
                         notClapCount.Probability ? "" : "not ") + "clapping."
+                    try {
+                        happiness.append((scores.emotions.happiness) ? scores.emotions.happiness : 0)
+                        console.log("Appended happiness")
+                        neutral.append((scores.emotions.neutral) ? scores.emotions.neutral : 0)
+                        console.log("Appended neutral")
+                        fear.append((scores.emotions.fear) ? scores.emotions.fear : 0)
+                        console.log("Appended fear")
+                        sadness.append((scores.emotions.sadness) ? scores.emotions.sadness : 0)
+                        console.log("Appended sadness")
+                        surprise.append((scores.emotions.surprise) ? scores.emotions.surprise : 0)
+                        console.log("Appended surprise")
+                        contempt.append((scores.emotions.contempt) ? scores.emotions.contempt : 0)
+                        console.log("Appended contempt")
+                        disgust.append((scores.emotions.disgust) ? scores.emotions.disgust : 0)
+                        console.log("Appended disgust")
+                        sizes.append(scores.size)
+                        console.log("Appended sizes")
+                        applause.append(clapCount.Probability)
+                        console.log("Appended applause")
+                    }
+                    catch (e) {
+                        console.log(e)
+                    }
                     var barGraph = new Chart($('#bar-graph'), {
                         type: 'bar',
                         data: {
@@ -103,15 +201,12 @@
                             datasets: [{
                                 label: 'Audience Emotion (5s interval)',
                                 data: [
-                                    (scores.emotions.happiness) ? scores.emotions.happiness :
-                                    0,
+                                    (scores.emotions.happiness) ? scores.emotions.happiness : 0,
                                     (scores.emotions.neutral) ? scores.emotions.neutral : 0,
                                     (scores.emotions.fear) ? scores.emotions.fear : 0,
                                     (scores.emotions.sadness) ? scores.emotions.sadness : 0,
-                                    (scores.emotions.surprise) ? scores.emotions.surprise :
-                                    0,
-                                    (scores.emotions.contempt) ? scores.emotions.contempt :
-                                    0,
+                                    (scores.emotions.surprise) ? scores.emotions.surprise : 0,
+                                    (scores.emotions.contempt) ? scores.emotions.contempt : 0,
                                     (scores.emotions.disgust) ? scores.emotions.disgust : 0
                                 ],
                                 backgroundColor: [
@@ -180,7 +275,6 @@
                     if (e.keyCode == 39) nextSlide()
                 })
             })
-
         </script>
 
     </div>

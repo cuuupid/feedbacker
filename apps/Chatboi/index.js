@@ -73,4 +73,25 @@ app.post('/improve', (q, s) => {
   })
 })
 
+app.post('/postmortem', (q, s) => {
+  if (!q.body.token) return error('No token!', s)
+  else MongoClient.connect('mongodb://localhost:27017/', (e, qb) => {
+    if (e) return error(e, s)
+    else {
+      let db = qb.db('LectureFeedback')
+      let c = db.collection(q.body.token)
+      c.find().toArray((e3, i) => {
+        if (e3) return error(e3, s)
+        else {
+          obj = []
+          for (var x = 0; x < i.length; x++) {
+            obj.unshift(i[x].feedback)
+          }
+          s.send({'data': obj})
+        }
+      })
+    }
+  })
+})
+
 app.listen(6666, () => console.log('Listening on 6666'))
