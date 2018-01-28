@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Deckboi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div>
+      <h1>Deckboi</h1>
+    </div>
+
+    <div class="button">
+      <input type="text" placeholder="GSlides Sharing Link" />
+    </div>
+
+    <iframe class="hidden" src="" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+    <br />
+
+
+    <div class="button" onclick="knock()">
+      <span class="button__mask"></span>
+      <span class="button__text">Time to Start!</span>
+      <span class="button__text button__text--bis">Time to Start!</span>
+    </div>
+
+    <script>
+            function knock() {
+                var divs = document.getElementsByTagName('div');
+                divs[1].className = "hidden";
+                divs[2].className = "hidden";
+                divs[3].className = "hidden";
+                var frame = document.getElementsByTagName('iframe')[0];
+                frame.src = document.getElementsByTagName('input')[0].value;
+                frame.className = "";
+            }
+    </script>
+
+  </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "tabstorm",
+  "version": "0.0.1",
+  "description": "Collaborate in realtime",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pshah123/tabstorm.git"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Priansh Shah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pshah123/tabstorm/issues"
+  },
+  "homepage": "https://github.com/pshah123/tabstorm#readme",
+  "dependencies": {
+    "emoji-js": "^3.4.0",
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}

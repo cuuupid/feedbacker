@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trackboi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <div>
+      <h1>Narwhal</h1>
+    </div>
+
+    <div class="button">
+      <input type="text" placeholder="my name is" />
+    </div>
+
+    <br>
+
+    <script>
+      let msg = (t) => {
+        document.getElementById('msg').innerHTML = t
+      }
+      var knock = () => {
+        fetch('http://YOUR_SERVER_IP:07734/knock', {
+            method: 'post',
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+              name: document.getElementsByTagName('input')[0].value
+            })
+          })
+          .then(
+            function (response) {
+              if (response.status !== 200) msg("Sorry, no one's home.")
+              else {
+                msg('One sec, opening the door.')
+                response.json().then((d) => {
+                  if (d.url) window.location = d.url
+                  else msg("Lock's jammed, try later.")
+                })
+              }
+            }
+          )
+          .catch((e) => {
+            msg("You can't knock without hands, silly!<br>(Get a newer browser)")
+          })
+      }
+    </script>
+
+    <div class="button" onclick="knock()">
+      <span class="button__mask"></span>
+      <span class="button__text">Knock</span>
+      <span class="button__text button__text--bis">Knock</span>
+    </div>
+
+    <div>
+      <p id="msg"></p>
+    </div>
+
+  </div>
+
+
+
+</body>
+
+</html>

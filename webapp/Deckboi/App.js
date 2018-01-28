@@ -59,20 +59,22 @@ export default class App extends React.Component {
         }).then((s) => s.json()).then((d) => {
           console.log(d)
           let num = d.size
+          let applause = d.applause
           delete d.size
+          delete d.applause
           if (num > 0) {
             if (d.top2.length > 1)
               this.state.looks = num + " ppl, " + d.top2[0] + " & " + d.top2[1]
             else
               this.state.looks = num + " ppl, " + d.top2[0]
             delete d.top2
-            let z = { size: num, emotions: d}
+            let z = { size: num, emotions: d, applause: applause}
             fetch('http://192.81.214.158:6666/realtime', {
               method: 'POST',
-              body: JSON.stringify({ 
-                token: this.state.token, 
-                frameId: this.state.frameId, 
-                scores: z,
+              body: JSON.stringify({
+                token: this.state.token,
+                frameId: this.state.frameId,
+                scores: z
               }),
               headers: {
                 'Accept': 'application/json',

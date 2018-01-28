@@ -18,3 +18,4 @@ webapp
 *.prefs
 BuildConfig/*
 *.log
+socket/node_modules/*

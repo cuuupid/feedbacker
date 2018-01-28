@@ -25,7 +25,6 @@ app.post('/feedback', (q, s) => {
   })
 })
 
-
 app.post('/realtime', (q, s) => {
   if (!q.body.frameId || !q.body.scores || !q.body.token) return error('Missing frame scores or token', s)
   MongoClient.connect('mongodb://localhost:27017/LectureRealtime', (e, qb) => {
