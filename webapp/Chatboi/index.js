@@ -1,8 +1,10 @@
 var MongoClient = require('mongodb').MongoClient
 var express = require('express')
+var cors = require('cors')
 app = express()
 var bodyparser = require('body-parser')
 app.use(bodyparser.json())
+app.use(cors())
 
 function error (e, s) {
   console.log("An error occurred.")
@@ -25,7 +27,9 @@ app.post('/feedback', (q, s) => {
   })
 })
 
+
 app.post('/realtime', (q, s) => {
+  console.log(q.body)
   if (!q.body.frameId || !q.body.scores || !q.body.token) return error('Missing frame scores or token', s)
   MongoClient.connect('mongodb://localhost:27017/LectureRealtime', (e, qb) => {
     let db = qb.db('LectureRealtime')

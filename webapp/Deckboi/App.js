@@ -13,7 +13,7 @@ export default class App extends React.Component {
   componentDidMount() {
     // hacking thru cDM because i can't be bothered to polyfill :0 soz
     if(this.state.set)
-      this.timer = setInterval(() => this.notTakePicture(), 10 * 1000);
+      this.timer = setInterval(() => this.notTakePicture(), 5 * 1000);
   }
   render() {
     return (

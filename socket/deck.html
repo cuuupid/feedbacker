@@ -20,7 +20,10 @@
     <div class="button">
       <input type="text" placeholder="GSlides Sharing Link" />
     </div>
-
+    <div class="button">
+            <input type="text" placeholder="Name your event" />
+    </div>
+      
     <iframe class="hidden" src="" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
     <br />
@@ -31,17 +34,38 @@
       <span class="button__text">Time to Start!</span>
       <span class="button__text button__text--bis">Time to Start!</span>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script>
-            function knock() {
-                var divs = document.getElementsByTagName('div');
-                divs[1].className = "hidden";
-                divs[2].className = "hidden";
-                divs[3].className = "hidden";
-                var frame = document.getElementsByTagName('iframe')[0];
-                frame.src = document.getElementsByTagName('input')[0].value;
-                frame.className = "";
-            }
+        var keeper = "";
+        var cur_slide = 0;
+        var socket = io();
+        var frame;
+        socket.on('join', (r) => {
+            console.log(r + " was joined")
+        })
+        function knock() {
+            var divs = document.getElementsByTagName('div');
+            divs[1].className = "hidden";
+            divs[2].className = "hidden";
+            divs[3].className = "hidden";
+            divs[4].className = "hidden";
+            frame = document.getElementsByTagName('iframe')[0];
+            var uri = document.getElementsByTagName('input')[0].value;
+            var eventName = document.getElementsByTagName('input')[1].value;
+            cur_slide = cur_slide + 1;
+            socket.emit('slide', cur_slide);
+            uri = uri.substring(0, uri.indexOf('pub'));
+            uri = uri + 'embed?start=false&loop=false&delayms=12000000';
+            keeper = uri;
+            uri = uri + "#slide=1";
+            frame.src = uri;
+            frame.className = "";
+        }
+        socket.on('slide', (s) => {
+            console.log(s)
+            uri = keeper + "#slide=" + s
+            frame.src = uri
+        })
     </script>
 
   </div>

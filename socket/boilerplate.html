@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta Tags for Viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Turn off caching because during development we'll change this file a lot -->
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <!-- Title -->
+    <title>Chart JS</title>
+
+    <!-- Latest compiled and minified CSS & JS for Boostrap 3 -->
+    <link rel="stylesheet" media="screen" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdhttp:n.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <!-- Data -->
+    <script src="./data/ChicMaroon2021.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>ChartJS<small> (Boilerplate)</small></h1>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bar Graph</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="bar-graph" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Line Graph</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="line-graph" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Scatter Plot</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="scatter-plot" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+        <!-- Using data from CSV/JSON -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Gender from CSV</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="gender-bar" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Protest Likelihood by Political Association</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="polprot-bar" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Protesters by Political Association</h3>
+            </div>
+            <div class="panel-body">
+                <canvas id="polprot-pie" style="width:50%">
+                    <!-- 50% width to fit -->
+                </canvas>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script>
+        /* Implementation of ChartJS */
+        var barGraph = new Chart($('#bar-graph'), {
+            type: 'bar',
+            data: {
+                labels: ["Asuna", "Hestia", "Rem", "Emilia", "Mikasa", "Rias"],
+                datasets: [{
+                    label: 'Who is best girl?',
+                    data: [12, 19, 21, 5, 2, 3],
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0.4)', // 0 red, 0 blue, 0 green, 40% opacity
+                        'rgba(50, 50, 50, 0.4)', // 50 red, 50 blue, 50 green, 40% opacity
+                        'rgba(100, 100, 100, 0.4)', //alternatively use a hex code
+                        'rgba(150, 150, 150, 0.4)',
+                        'rgba(200, 200, 200, 0.4)',
+                        'rgba(250, 250, 250, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(0,0,0,1)', //full black border
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)',
+                        'rgba(0,0,0,1)'
+                    ],
+                    borderWidth: 2 //2 pixel border
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true // begin y axis at 0
+                        }
+                    }]
+                }
+            }
+        });
+        var lineGraph = new Chart($('#line-graph'), {
+            type: 'line',
+            data: {
+                labels: ["Episodes 1-4", "Mid Season 1", "End of S1 Arc", "S2 Asuna Arc", "S2 Harem Arc",
+                    "S2 Final Arc"
+                ],
+                datasets: [{
+                    label: 'Quality of SAO over Episodes',
+                    data: [12, 19, 21, 5, 1, 2],
+                    borderColor: '#19d8c1'
+                }, {
+                    label: 'Harem Size per SAO Episodes',
+                    data: [1, 7, 19, 28, 34, 42],
+                    borderColor: '#000'
+                }]
+            },
+            options: {
+                elements: {
+                    line: {
+                        tension: 0.2
+                    }
+                }
+            }
+        })
+        var scatterChart = new Chart($('#scatter-plot'), {
+            type: 'scatter',
+            data: {
+                labels: ['Kirito', 'Kazuma', 'Lelouch', 'Subaru', 'Bell-kun', 'Keima'],
+                datasets: [{
+                    label: 'Anime MCs',
+                    data: [{
+                        x: 9,
+                        y: 6
+                    }, {
+                        x: 7,
+                        y: 3
+                    }, {
+                        x: 4,
+                        y: 9
+                    }, {
+                        x: 3,
+                        y: 3
+                    }, {
+                        x: 8,
+                        y: 6
+                    }, {
+                        x: 10,
+                        y: 2
+                    }],
+                    borderColor: '#19d8c1',
+                    borderWidth: 7
+                }]
+            },
+            options: {
+                tooltips: { // to get our own labels on hover
+                    callbacks: {
+                        label: function (tooltipItem, data) {
+                            var label = data.labels[tooltipItem.index]; // get the label from our labels array
+                            return label + ' | Harem Rating: ' + tooltipItem.xLabel + ', OP-ness:' +
+                                tooltipItem.yLabel + ')';
+                            // construct a string, Character | Harem Rating: #, OP-ness #, to be shown on hover
+                        }
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        type: 'linear',
+                        position: 'bottom',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 10
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Harem Size'
+                        }
+                    }],
+                    yAxes: [{
+                        type: 'linear',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 10
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'OP Rating of Respective Power'
+                        }
+                    }]
+                }
+            }
+        });
+
+        /* Using data from CSV/JSON */
+        var gender = [0, 0, 0]
+        let MALE = 0;
+        let FEMALE = 1;
+        let OTHER = 2;
+        /**
+         * Data format is an array of arrays of data:
+         * [
+         *  [timestamp, gender, race, orientation, ...],
+         *  ...
+         * ]
+         * 
+         * for more detail see `data/ChicMaroon2021.js`
+         */
+        for (var i = 0; i < data.length; i++)
+            switch (data[i][1]) {
+                case "Male":
+                    gender[MALE]++;
+                    break;
+                case "Female":
+                    gender[FEMALE]++;
+                    break;
+                default:
+                    gender[OTHER]++;
+                    break;
+            }
+        var barGraph = new Chart($('#gender-bar'), {
+            type: 'bar',
+            data: {
+                labels: ["Male", "Female", "Other"],
+                datasets: [{
+                    label: 'Gender of Respondents',
+                    data: gender,
+                    backgroundColor: [
+                        'blue', // 0 red, 0 blue, 0 green, 40% opacity
+                        'pink', // 50 red, 50 blue, 50 green, 40% opacity
+                        'coral', //alternatively use a hex code
+                    ],
+                    borderColor: [
+                        'rgba(0,0,0,0.2)', //full black border
+                        'rgba(0,0,0,0.2)',
+                        'rgba(0,0,0,0.2)',
+                    ],
+                    borderWidth: 2 //2 pixel border
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true // begin y axis at 0
+                        }
+                    }]
+                }
+            }
+        });
+
+        let PROTEST = 25 + 18;
+        let YES = 0;
+        let NO = 1;
+        let POLITICAL_IDENTITY = 9;
+        var protest = {
+            conservative: [0, 0],
+            liberal: [0, 0],
+            centrist: [0, 0]
+        }
+        for (var i = 0; i < data.length; i++)
+            switch (data[i][POLITICAL_IDENTITY]) {
+                case "More conservative":
+                    switch (data[i][PROTEST]) {
+                        case "Yes":
+                            protest.conservative[YES]++;
+                            break;
+                        case "No":
+                            protest.conservative[NO]++;
+                            break;
+                        default:
+                            break;
+                    }
+                case "More liberal":
+                    switch (data[i][PROTEST]) {
+                        case "Yes":
+                            protest.liberal[YES]++;
+                            break;
+                        case "No":
+                            protest.liberal[NO]++;
+                            break;
+                        default:
+                            break;
+                    }
+                case "About the same":
+                    switch (data[i][PROTEST]) {
+                        case "Yes":
+                            protest.centrist[YES]++;
+                            break;
+                        case "No":
+                            protest.centrist[NO]++;
+                            break;
+                        default:
+                            break;
+                    }
+            }
+        var polid_and_protest = new Chart($('#polprot-bar'), {
+            type: 'bar',
+            data: {
+                labels: ["Conservative", "Centrist", "Liberal"],
+                datasets: [{
+                    label: "Likely to protest",
+                    data: [protest.conservative[YES], protest.centrist[YES], protest.liberal[YES]],
+                    backgroundColor: [
+                        'darkred', // 0 red, 0 blue, 0 green, 40% opacity
+                        'seagreen', // 50 red, 50 blue, 50 green, 40% opacity
+                        'darkblue', //alternatively use a hex code
+                    ],
+                    borderColor: 'green',
+                    borderWidth: 2 //2 pixel border
+                }, {
+                    label: "Unlikely to protest",
+                    data: [protest.conservative[NO], protest.centrist[NO], protest.liberal[NO]],
+                    backgroundColor: [
+                        'pink', // 0 red, 0 blue, 0 green, 40% opacity
+                        'lightgreen', // 50 red, 50 blue, 50 green, 40% opacity
+                        'lightblue', //alternatively use a hex code
+                    ],
+                    borderColor: 'red',
+                    borderWidth: 2 //2 pixel border
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true // begin y axis at 0
+                        }
+                    }]
+                }
+            }
+        });
+        var protest_pie = new Chart($('#polprot-pie'), {
+            type: 'doughnut',
+            data: {
+                labels: ["Conservative", "Centrist", "Liberal"],
+                datasets: [{
+                    data: [protest.conservative[YES], protest.centrist[YES], protest.liberal[YES]],
+                    backgroundColor: [
+                        'lightcoral', // 0 red, 0 blue, 0 green, 40% opacity
+                        'lemonchiffon', // 50 red, 50 blue, 50 green, 40% opacity
+                        'lightseagreen', //alternatively use a hex code
+                    ],
+                    borderColor: 'steelblue',
+                    borderWidth: 2 //2 pixel border
+                }]
+            }
+        });
+    </script>
+
+</body>
+
+</html>
