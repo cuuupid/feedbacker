@@ -14,7 +14,12 @@ R.java
 valu*.json
 webapp\Deckboi\android\*
 *ndroid/*
-webapp
+apps/Chatboi/db/*
+apps/Chatboi/node_modules/*
+apps/Deckboi/android/*
+apps/Deckboi/ios/*
+apps/Deckboi/ios/*
+apps/Deckboi/com/*
 *.prefs
 BuildConfig/*
 *.log
