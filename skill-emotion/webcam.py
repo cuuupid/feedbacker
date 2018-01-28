@@ -20,7 +20,7 @@ while(True):
     frame = base64.b64encode(frame)
     frame = base64.decodebytes(frame)
     r = requests.post('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize', data=frame, headers={
-                      'Content-type': 'application/octet-stream', 'Ocp-Apim-Subscription-Key': '59c23938459842c59c82f594ebce1072'})
+                      'Content-type': 'application/octet-stream', 'Ocp-Apim-Subscription-Key': 'KEY HERE'})
     data = r.json()
     cv2.imwrite('tmp/input.jpg', img)
     try:
